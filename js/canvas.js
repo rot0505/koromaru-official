@@ -1,22 +1,22 @@
 // particle.min.js hosted on GitHub
 // Scroll down for initialisation code
-! function(a) {
+! function (a) {
     var b = "object" == typeof self && self.self === self && self || "object" == typeof global && global.global === global && global;
-    "function" == typeof define && define.amd ? define(["exports"], function(c) {
+    "function" == typeof define && define.amd ? define(["exports"], function (c) {
         b.ParticleNetwork = a(b, c)
     }) : "object" == typeof module && module.exports ? module.exports = a(b, {}) : b.ParticleNetwork = a(b, {})
-}(function(a, b) {
-    var c = function(a) {
+}(function (a, b) {
+    var c = function (a) {
         this.canvas = a.canvas, this.g = a.g, this.particleColor = a.options.particleColor, this.x = Math.random() * this.canvas.width, this.y = Math.random() * this.canvas.height, this.velocity = {
             x: (Math.random() - .5) * a.options.velocity,
             y: (Math.random() - .5) * a.options.velocity
         }
     };
-    return c.prototype.update = function() {
+    return c.prototype.update = function () {
         (this.x > this.canvas.width + 20 || this.x < -20) && (this.velocity.x = -this.velocity.x), (this.y > this.canvas.height + 20 || this.y < -20) && (this.velocity.y = -this.velocity.y), this.x += this.velocity.x, this.y += this.velocity.y
-    }, c.prototype.h = function() {
+    }, c.prototype.h = function () {
         this.g.beginPath(), this.g.fillStyle = this.particleColor, this.g.globalAlpha = .7, this.g.arc(this.x, this.y, 1.5, 0, 2 * Math.PI), this.g.fill()
-    }, b = function(a, b) {
+    }, b = function (a, b) {
         this.i = a, this.i.size = {
             width: this.i.offsetWidth,
             height: this.i.offsetHeight
@@ -27,10 +27,10 @@
             velocity: this.setVelocity(b.speed),
             density: this.j(b.density)
         }, this.init()
-    }, b.prototype.init = function() {
+    }, b.prototype.init = function () {
         if (this.k = document.createElement("div"), this.i.appendChild(this.k), this.l(this.k, {
-                
-            }), /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.background)) this.l(this.k, {
+
+        }), /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.background)) this.l(this.k, {
             background: this.options.background
         });
         else {
@@ -46,8 +46,8 @@
         }), this.l(this.canvas, {
             "z-index": "20",
             position: "relative"
-        }), window.addEventListener("resize", function() {
-            return this.i.offsetWidth === this.i.size.width && this.i.offsetHeight === this.i.size.height ? !1 : (this.canvas.width = this.i.size.width = this.i.offsetWidth, this.canvas.height = this.i.size.height = this.i.offsetHeight, clearTimeout(this.m), void(this.m = setTimeout(function() {
+        }), window.addEventListener("resize", function () {
+            return this.i.offsetWidth === this.i.size.width && this.i.offsetHeight === this.i.size.height ? !1 : (this.canvas.width = this.i.size.width = this.i.offsetWidth, this.canvas.height = this.i.size.height = this.i.offsetHeight, clearTimeout(this.m), void (this.m = setTimeout(function () {
                 this.o = [];
                 for (var a = 0; a < this.canvas.width * this.canvas.height / this.options.density; a++) this.o.push(new c(this));
                 this.options.interactive && this.o.push(this.p), requestAnimationFrame(this.update.bind(this))
@@ -57,9 +57,9 @@
         this.options.interactive && (this.p = new c(this), this.p.velocity = {
             x: 0,
             y: 0
-        }, this.o.push(this.p), this.canvas.addEventListener("mousemove", function(a) {
+        }, this.o.push(this.p), this.canvas.addEventListener("mousemove", function (a) {
             this.p.x = a.clientX - this.canvas.offsetLeft, this.p.y = a.clientY - this.canvas.offsetTop
-        }.bind(this)), this.canvas.addEventListener("mouseup", function(a) {
+        }.bind(this)), this.canvas.addEventListener("mouseup", function (a) {
             this.p.velocity = {
                 x: (Math.random() - .5) * this.options.velocity,
                 y: (Math.random() - .5) * this.options.velocity
@@ -68,7 +68,7 @@
                 y: 0
             }, this.o.push(this.p)
         }.bind(this))), requestAnimationFrame(this.update.bind(this))
-    }, b.prototype.update = function() {
+    }, b.prototype.update = function () {
         this.g.clearRect(0, 0, this.canvas.width, this.canvas.height), this.g.globalAlpha = 1;
         for (var a = 0; a < this.o.length; a++) {
             this.o[a].update(), this.o[a].h();
@@ -78,11 +78,11 @@
             }
         }
         0 !== this.options.velocity && requestAnimationFrame(this.update.bind(this))
-    }, b.prototype.setVelocity = function(a) {
+    }, b.prototype.setVelocity = function (a) {
         return "fast" === a ? 1 : "slow" === a ? .33 : "none" === a ? 0 : .66
-    }, b.prototype.j = function(a) {
+    }, b.prototype.j = function (a) {
         return "high" === a ? 5e3 : "low" === a ? 2e4 : isNaN(parseInt(a, 10)) ? 1e4 : a
-    }, b.prototype.l = function(a, b) {
+    }, b.prototype.l = function (a, b) {
         for (var c in b) a.style[c] = b[c]
     }, b
 });
@@ -91,7 +91,7 @@
 
 var canvasDiv = document.getElementById('particle-canvas');
 var options = {
-    particleColor: '#da4bfd',
+    particleColor: '#660000',
     interactive: true,
     speed: 'medium',
     density: 'high'

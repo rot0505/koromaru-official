@@ -46,7 +46,7 @@ a.active {
 }
 
 #preloader {
-	background: url(../images/loader.svg) center no-repeat #470fac;
+	background: url(../images/loader.svg) center no-repeat #660000;
 }
 
 .form-control,
