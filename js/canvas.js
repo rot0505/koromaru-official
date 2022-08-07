@@ -91,7 +91,7 @@
 
 var canvasDiv = document.getElementById('particle-canvas');
 var options = {
-    particleColor: '#660000',
+    particleColor: '#FF160C',
     interactive: true,
     speed: 'medium',
     density: 'high'
